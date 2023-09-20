@@ -7,7 +7,7 @@ simple yet challenging game to help musicians to develop and strengthen skills
 -----------------------------------------------------------------------------------------------------
 TODO:
 
-(9/20/2023)
+(9/20/2023) BOD
 - implement navigation
     - make render in app a seperate function in the app.js page
 - create page for game 
@@ -15,3 +15,15 @@ TODO:
 - Work on homepage
     - make buttons bigger
     - make sure colors are looking nice
+(9/20/2023) EOD
+- add space between cards and buttons
+- find images for fingering
+- add game modes (piano, guitar, ukelele)
+    - or dont use fingering for images use treble cleff notation
+- get rid of navigation header
+- add new game button at the bottom of activegamescreen to give new notes
+    - should have option to change game setup
+        - Modal? New Game -> HomePage
+- look around for visual effects that can be added
+- add blockers for if mode and difficulty not chosen
+- handle overflow of notes
