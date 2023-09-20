@@ -1,0 +1,1 @@
+// this is a visual component that displays an image associated with a chord or note
