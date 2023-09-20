@@ -20,7 +20,9 @@ export default function App() {
     console.log(gameDifficulty);
   }
 
-  const elementsToPlay = useState([]);
+  const [elementsToPlay,populateElementsToPlay] = useState(()=> {
+    return [];
+  });
 
   function populateElementsToPlay(gameMode, gameDifficulty){
     //populate elementsToPlay array with notes and chords based on gameMode
@@ -94,12 +96,6 @@ export default function App() {
       }
     }
   
-
-
-    
-
-
-
 
   return (
     <SafeAreaView style={styles.container}>
