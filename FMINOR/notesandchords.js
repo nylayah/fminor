@@ -10,7 +10,6 @@ const notes = {
     "B": [30.87, 61.74,	123.47, 246.94,	493.88,	987.77,	1975.53, 3951.07, 7902.13,],
 };
 
-
 const accidentals = {
     "C#":[["Db"],[17.32, 34.65, 69.30, 138.59, 277.18, 554.37,	1108.73, 2217.46, 4434.92]],
     "D#":[["Eb"],[19.45, 38.89,	77.78,	155.56,	311.13,	622.25,	1244.51, 2489.02, 4978.03]],
@@ -29,4 +28,4 @@ const majorchords = {
     "B": ["B", "D#", "F#"],
 };
 
-export default {notes, accidentals, majorchords};
+export {notes, accidentals, majorchords};
