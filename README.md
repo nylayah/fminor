@@ -15,6 +15,7 @@ TODO:
 - Work on homepage
     - make buttons bigger
     - make sure colors are looking nice
+
 (9/20/2023) EOD
 - add space between cards and buttons
 - find images for fingering
