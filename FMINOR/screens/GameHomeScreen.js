@@ -45,32 +45,32 @@ export const GameHomeScreen = () => {
         
         {/* GAME MODE SELECTION */}
         <View style={styles.gameSettingSelection}>
-          <Pressable style={gameMode === 0 ? styles.selected : styles.selector}
-            onPress={handleModeSelection(0)}>
+          <Pressable style={gameMode === "Notes Only" ? styles.selected : styles.selector}
+            onPress={handleModeSelection("Notes Only")}>
             <Text>Notes Only</Text>
           </Pressable>
-          <Pressable style={gameMode === 1 ? styles.selected : styles.selector}
-            onPress={handleModeSelection(1)}>
+          <Pressable style={gameMode === "Chords Only" ? styles.selected : styles.selector}
+            onPress={handleModeSelection("Chords Only")}>
             <Text>Chords Only</Text>
           </Pressable>
-          <Pressable style={gameMode === 2 ? styles.selected : styles.selector}
-            onPress={handleModeSelection(2)}>
+          <Pressable style={gameMode === "Notes and Chords" ? styles.selected : styles.selector}
+            onPress={handleModeSelection("Notes and Chords")}>
             <Text>Mix</Text>
           </Pressable>
         </View>
         
         {/* GAME DIFFICULTY SELECTION */}
         <View style={styles.gameSettingSelection}>
-          <Pressable style={gameDifficulty === 0 ? styles.selected : styles.selector}
-            onPress={handleDifficultySelection(0)}>
+          <Pressable style={gameDifficulty === "Easy" ? styles.selected : styles.selector}
+            onPress={handleDifficultySelection("Easy")}>
             <Text>Easy</Text>
           </Pressable>
-          <Pressable style={gameDifficulty === 1 ? styles.selected : styles.selector}
-            onPress={handleDifficultySelection(1)}>
+          <Pressable style={gameDifficulty === "Medium" ? styles.selected : styles.selector}
+            onPress={handleDifficultySelection("Medium")}>
             <Text>Medium</Text>
           </Pressable>
-          <Pressable style={gameDifficulty === 2 ? styles.selected : styles.selector}
-            onPress={handleDifficultySelection(2)}>
+          <Pressable style={gameDifficulty === "Hard" ? styles.selected : styles.selector}
+            onPress={handleDifficultySelection("Hard")}>
             <Text>Hard</Text>
           </Pressable>
         </View>
@@ -81,7 +81,7 @@ export const GameHomeScreen = () => {
           <Text>Start</Text>
         </Pressable>
   
-        <StatusBar style="auto" />
+        <StatusBar hidden = "true" style="auto" />
       </SafeAreaView>
     );
   }
@@ -95,16 +95,15 @@ export const GameHomeScreen = () => {
       justifyContent: 'space-evenly',
       paddingTop: '10%',
       paddingBottom: '10%',
+      textAlign: 'center'
      
   
     },
     gameSettingSelection: {
-      display: 'flex',
       flexDirection: 'row',
       backgroundColor: '#5BC0BE',
-      justifyContent:'space-around',
-      rowGap: '10%'
-      
+      justifyContent:'center',
+      alignContent:'center',
     },
     selector: {
       backgroundColor: 'white',
@@ -114,7 +113,8 @@ export const GameHomeScreen = () => {
       borderRadius: 10,
       fontSize:10,
       padding:'5%',
-      alignContent: 'center'
+      alignContent: 'center',
+      marginHorizontal: 5,
     },
     selected: {
       backgroundColor: 'pink',
@@ -124,7 +124,8 @@ export const GameHomeScreen = () => {
       borderRadius: 10,
       fontSize:10,
       padding:'5%',
-      alignContent: 'center'
+      alignContent: 'center',
+      marginHorizontal: 5,
     },
     titleText: {
       fontSize: 40,

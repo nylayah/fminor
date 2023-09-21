@@ -1,18 +1,19 @@
-import { StyleSheet, Text, SafeAreaView, View, Pressable } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, Pressable, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import { Card } from '../components/elementCard';
+import {useState, useEffect} from 'react';
 
 const gameModeToElementGenerator = {
-    0: () => returnRandomNote(),
-    1: () => returnRandomChord("major"),
-    2: () => returnRandomNoteOrChord(),
+    "Notes Only": () => returnRandomNote(),
+    "Chords Only": () => returnRandomChord("major"),
+    "Notes and Chords": () => returnRandomNoteOrChord(),
   };
   
 const gameDifficultyToElementCount = {
-    0: 5,
-    1: 10,
-    2: 15,
+    "Easy": 5,
+    "Medium": 10,
+    "Hard": 15,
   };
   
 const populateElementsToPlay = (gameMode, gameDifficulty) => {
@@ -34,14 +35,13 @@ function startFMINOR(gameMode, gameDifficulty, elementsToPlay){
 }
 
 export const ActiveGameScreen = () => {
-    
+    const [currentIndex, setCurrentIndex] = useState(0);
     const route = useRoute();
 
     const gameMode = route.params.gameMode;
     const gameDifficulty = route.params.gameDifficulty;
     const elementsToPlay = populateElementsToPlay(gameMode,gameDifficulty);
-    
-    
+  
     startFMINOR(gameMode,gameDifficulty, elementsToPlay);
 
     return (
@@ -53,11 +53,11 @@ export const ActiveGameScreen = () => {
             </View>
             
             {/* array of elements to play */}
-            <View style={styles.elementsContainer}>
+            <ScrollView horizontal={true}  contentContainerStyles={styles.elementsContainer}>
                 {elementsToPlay.map((element) => (
                   <Card note={element} difficulty={gameDifficulty}/>
                 ))}
-            </View>
+            </ScrollView>
             <View style={styles.elementsContainer}>
               {/* Refresh */}
               <Pressable style={styles.startButton}>
@@ -95,11 +95,8 @@ const styles = StyleSheet.create({
     },
     elementsContainer:
     {
-      flexDirection: 'row',
-      padding: '10%',
-      alignContent:'center',
-      alignItems:'center',
-      justifyContent:'center'
+      height: '50%',
+      padding: '10%'
     },
     startButton: {
       backgroundColor: 'white',
