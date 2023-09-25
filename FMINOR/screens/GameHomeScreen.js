@@ -115,6 +115,7 @@ export const GameHomeScreen = () => {
       padding:'5%',
       alignContent: 'center',
       marginHorizontal: 5,
+      borderWidth: "1px"
     },
     selected: {
       backgroundColor: 'pink',
@@ -140,6 +141,7 @@ export const GameHomeScreen = () => {
       borderRadius: 360,
       fontSize:10,
       padding:'2%',
+      borderWidth:'1px'
     },
   })
   

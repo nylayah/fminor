@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius:'10%',
-      padding:'20%',
-      width:'1/4',
-      height:'100%'
+      borderRadius:10,
+      padding:'2%',
+      marginHorizontal:5,
+      borderWidth:'1px'
 
     },
 });

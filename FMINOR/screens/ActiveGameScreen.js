@@ -1,5 +1,6 @@
 import { StyleSheet, Text, SafeAreaView, View, Pressable, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import { Card } from '../components/elementCard';
 import {useState, useEffect} from 'react';
@@ -35,14 +36,29 @@ function startFMINOR(gameMode, gameDifficulty, elementsToPlay){
 }
 
 export const ActiveGameScreen = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    // used to extract params from user selections from previous page
     const route = useRoute();
+    // use to navigate back to homescreen 
+    const navigation = useNavigation();
 
+    // extracted from game home screen
+    // while on this page, these constants should always remain the same
     const gameMode = route.params.gameMode;
     const gameDifficulty = route.params.gameDifficulty;
+    
+    //chords to be returned to user
+    // can change if refressh button is clicked
     const elementsToPlay = populateElementsToPlay(gameMode,gameDifficulty);
+    //variable that allows elementstoplay to change
+    const[chords,setChords] = useState([]);
+
+    const handleRefreshClick = () => {
+      const newChords = populateElementsToPlay(gameMode, gameDifficulty);
+      setChords(newChords);
+      startFMINOR(gameMode,gameDifficulty,chords);
+    }
   
-    startFMINOR(gameMode,gameDifficulty, elementsToPlay);
+    startFMINOR(gameMode,gameDifficulty, chords);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -53,24 +69,29 @@ export const ActiveGameScreen = () => {
             </View>
             
             {/* array of elements to play */}
-            <ScrollView horizontal={true}  contentContainerStyles={styles.elementsContainer}>
+            <View style={styles.elementsContainer}>
                 {elementsToPlay.map((element) => (
                   <Card note={element} difficulty={gameDifficulty}/>
                 ))}
-            </ScrollView>
-            <View style={styles.elementsContainer}>
+            </View>
+            <View style={styles.buttonsContainer}>
+              <Text>-------------------------------</Text>
+              {/* Play/Pause */}
+              <Pressable style={styles.gameButton}>
+                <Text> ▶ || </Text>
+              </Pressable>
               {/* Refresh */}
-              <Pressable style={styles.startButton}>
+              <Pressable style={styles.gameButton}
+                onPress={handleRefreshClick}>
                 <Text>Refresh</Text>
               </Pressable>
-              {/* New Game */}
-              <Pressable style={styles.startButton}>
-                <Text>New Game</Text>
+              {/* Quit Game */}
+              <Pressable style={styles.gameButton}
+                onPress={()=> navigation.navigate("GameHomeScreen")}>
+                <Text>Quit Game</Text>
               </Pressable>
-
-
-
-            </View>
+              </View>
+        
            
         </SafeAreaView>
     );
@@ -87,7 +108,8 @@ const styles = StyleSheet.create({
       backgroundColor:'white',
       height:'5%',
       width:'100%',
-      justifyContent: 'space-evenly'
+      justifyContent: 'space-evenly',
+      padding:2
     },
     headerText: {
       fontSize: 20,
@@ -95,17 +117,27 @@ const styles = StyleSheet.create({
     },
     elementsContainer:
     {
-      height: '50%',
-      padding: '10%'
+      flexDirection: "row",
+      justifyContent:'center',
+      alignContent:'center',
+      marginVertical:10
     },
-    startButton: {
+    buttonsContainer:{
+      height: '20%',
+      flexDirection:'column',
+      alignContent:'center',
+      justifyContent: 'center'
+    },
+    gameButton: {
       backgroundColor: 'white',
       alignItems: 'center',
       textAlign: 'center',
       color: '#5BC0BE',
-      borderRadius: 360,
+      borderRadius: 20,
       fontSize:10,
-      padding:'10%',
+      padding:10,
+      borderWidth: '1px',
+      marginVertical:5,
     },
 });
 
