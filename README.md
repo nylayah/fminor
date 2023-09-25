@@ -28,3 +28,13 @@ TODO:
 - look around for visual effects that can be added
 - add blockers for if mode and difficulty not chosen
 - handle overflow of notes
+
+(9/25/2023) BOD
+- Implement audio detection to begin testing
+    - add button to navigate to new screen with audio detection
+    -create audio detection page
+- Reorganize notes
+    - add octave labels
+        - break up notes and frequencies
+- create comparison for user audio input
+    - implement using function
