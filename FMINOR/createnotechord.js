@@ -1,27 +1,18 @@
-import {notes, accidentals, majorchords  } from "./notesandchords.js"
+import {notes, majorchords  } from "./notesandchords.js"
 
 //length of notes dictionary
 const notesLength = Object.keys(notes).length;
 
-//length of accidentals dictionary
-const accidentalsLength = Object.keys(accidentals).length;
-
 //length of majorChords
 const majorChordsLength = Object.keys(majorchords).length;
 
+// TODO: implement limits to notes in regards to instrument
 
 export function returnRandomNote() {
     
     // returns a random note for the user to play/pick
-    
-
     const note = Object.entries(notes)[Math.floor(Math.random() * notesLength)][0]
-    const accidental = Object.entries(accidentals)[Math.floor(Math.random() * accidentalsLength)][0];
-    
-    // return note or accidental
-    if (Math.random() < 0.5) {
-        return accidental;
-    }
+
     return note;
 }
 
@@ -46,12 +37,7 @@ export function returnRandomNoteOrChord() {
     }
     else {
         const note = Object.entries(notes)[Math.floor(Math.random() * notesLength)][0];
-        const accidental = Object.entries(accidentals)[Math.floor(Math.random() * accidentalsLength)][0];
-        
-        // return note or accidental
-        if (Math.random() < 0.5) {
-            return accidental;
-        }
+    
         return note;
     }
     

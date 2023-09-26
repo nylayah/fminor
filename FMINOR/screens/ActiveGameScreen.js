@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import { Card } from '../components/elementCard';
 import {useState, useEffect} from 'react';
+import { navBar } from '../components/navBar'
 
 const gameModeToElementGenerator = {
     "Notes Only": () => returnRandomNote(),
@@ -62,37 +63,36 @@ export const ActiveGameScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* game header */}
-            <View style={styles.header}>
-              <Text style={styles.headerText}>Game Mode: {gameMode}</Text>
-              <Text style={styles.headerText}>Game Difficulty: {gameDifficulty}</Text>
-            </View>
-            
-            {/* array of elements to play */}
-            <View style={styles.elementsContainer}>
-                {elementsToPlay.map((element) => (
-                  <Card note={element} difficulty={gameDifficulty}/>
-                ))}
-            </View>
-            <View style={styles.buttonsContainer}>
-              <Text>-------------------------------</Text>
-              {/* Play/Pause */}
-              <Pressable style={styles.gameButton}>
-                <Text> ▶ || </Text>
-              </Pressable>
-              {/* Refresh */}
-              <Pressable style={styles.gameButton}
-                onPress={handleRefreshClick}>
-                <Text>Refresh</Text>
-              </Pressable>
-              {/* Quit Game */}
-              <Pressable style={styles.gameButton}
-                onPress={()=> navigation.navigate("GameHomeScreen")}>
-                <Text>Quit Game</Text>
-              </Pressable>
-              </View>
-        
-           
+          {/* game header */}
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Game Mode: {gameMode}</Text>
+            <Text style={styles.headerText}>Game Difficulty: {gameDifficulty}</Text>
+          </View>
+          
+          {/* array of elements to play */}
+          <View style={styles.elementsContainer}>
+              {elementsToPlay.map((element) => (
+                <Card note={element} difficulty={gameDifficulty}/>
+              ))}
+          </View>
+          <View style={styles.buttonsContainer}>
+            <Text>-------------------------------</Text>
+            {/* Play/Pause */}
+            <Pressable style={styles.gameButton}>
+              <Text> ▶ || </Text>
+            </Pressable>
+            {/* Refresh */}
+            <Pressable style={styles.gameButton}
+              onPress={handleRefreshClick}>
+              <Text>Refresh</Text>
+            </Pressable>
+            {/* Quit Game */}
+            <Pressable style={styles.gameButton}
+              onPress={()=> navigation.navigate("GameHomeScreen")}>
+              <Text>Quit Game</Text>
+            </Pressable>
+          </View>
+          <navBar/>
         </SafeAreaView>
     );
 }
