@@ -3,7 +3,7 @@ import { useRoute } from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
 import {returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import { notes } from "../notesandchords.js"
-import { navBar } from '../components/navBar'
+import { NavBar } from '../components/NavBar'
 
 const gameMode = {
     // easy - must choose right note
@@ -22,9 +22,17 @@ export const NoteEarTrainingSession = () => {
         // number of notes displayed will depend on the gameMode
     // user must select the correct note associated with the audio frequency being played 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
             <Text>Note Ear Training Session</Text>
-            <navBar/>
+            <NavBar/>
         </SafeAreaView>
     )
 }
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#5BC0BE',
+      alignItems: 'center',
+      
+    },
+  })

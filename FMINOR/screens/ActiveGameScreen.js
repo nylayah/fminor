@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import { Card } from '../components/elementCard';
 import {useState, useEffect} from 'react';
-import { navBar } from '../components/navBar'
+import { NavBar } from '../components/NavBar'
 
 const gameModeToElementGenerator = {
     "Notes Only": () => returnRandomNote(),
@@ -46,6 +46,7 @@ export const ActiveGameScreen = () => {
     // while on this page, these constants should always remain the same
     const gameMode = route.params.gameMode;
     const gameDifficulty = route.params.gameDifficulty;
+    const instrument = route.params.instrument;
     
     //chords to be returned to user
     // can change if refressh button is clicked
@@ -65,6 +66,7 @@ export const ActiveGameScreen = () => {
         <SafeAreaView style={styles.container}>
           {/* game header */}
           <View style={styles.header}>
+            <Text style={styles.headerText}>Instrument: {instrument}</Text>
             <Text style={styles.headerText}>Game Mode: {gameMode}</Text>
             <Text style={styles.headerText}>Game Difficulty: {gameDifficulty}</Text>
           </View>
@@ -92,7 +94,7 @@ export const ActiveGameScreen = () => {
               <Text>Quit Game</Text>
             </Pressable>
           </View>
-          <navBar/>
+          <NavBar/>
         </SafeAreaView>
     );
 }

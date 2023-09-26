@@ -33,22 +33,22 @@ export function detectFrequency() {
     return frequency;
 }
 // following block of code goes inside of an app screen component
-// const [frequency, setFrequency] = useState(0);
+const [frequency, setFrequency] = useState(0);
 
-// useEffect (()=> {
-//     const interval = setInterval(()=> {
-//         setFrequency(detectFrequency());
-//     }, 100);
+useEffect (()=> {
+    const interval = setInterval(()=> {
+        setFrequency(detectFrequency());
+    }, 100);
 
-//     return () => {
-//         clearInterval(interval);
-//     };
-// }, []);
+    return () => {
+        clearInterval(interval);
+    };
+}, []);
 
 
-// // display
-// // return (
-// //     <div>
-// //       <h1>Frequency: {frequency} Hz</h1>
-// //     </div>
-// //   );
+display
+return (
+    <div>
+      <h1>Frequency: {frequency} Hz</h1>
+    </div>
+  );

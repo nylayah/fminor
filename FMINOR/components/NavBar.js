@@ -6,30 +6,42 @@ import { ActiveGameScreen } from '../screens/ActiveGameScreen';
 import { NoteEarTrainingSession } from '../screens/NoteEarTraining';
 import { SessionSettings } from '../screens/SessionSettings';
 
-export const navBar = () => {
+export const NavBar = () => {
 
     const navigation = useNavigation();
+
+    const route = useRoute();
+
+    
+
+    // const instrument = route.params.instrument;
+    // const gameMode = route.params.gameMode;
+    // const gameDifficulty = route.params.gameDifficulty;
 
     return (
         <View style = {styles.navBarContainer}>
             <Pressable
+             style = {styles.button}
              onPress={()=> navigation.navigate("TestHomeScreen")}>
-                <Text>Home</Text>
+                <Text style = {{color:"white"}}>Home</Text>
             </Pressable>
             
             <Pressable
+             style = {styles.button}
              onPress={()=> navigation.navigate("GameHomeScreen")}>
-                <Text>Note Generator</Text>
+                <Text style = {{color:"white"}}>Note Generator</Text>
             </Pressable>
 
             <Pressable
+             style = {styles.button}
              onPress={()=> navigation.navigate("NoteEarTraining")}>
-                <Text>Note Ear Training</Text>
+                <Text style = {{color:"white"}}>Note Ear Training</Text>
             </Pressable>
 
             <Pressable
+             style = {styles.button}
              onPress={()=> navigation.navigate("SessionSettings")}>
-                <Text>Session Settings</Text>
+                <Text style = {{color:"white"}}>Session Settings</Text>
             </Pressable>
         </View>
 
@@ -42,7 +54,14 @@ const styles = StyleSheet.create({
         color: 'white',
         flexDirection: 'row',
         bottom: 0,
-        textColor: 'white'
+        textColor: 'white',
+        width:'100%',
+        justifyContent:'space-evenly'
+    },
+    button: {
+        borderWidth: '1px',
+        borderColor: 'white'
+
     }
         
 })

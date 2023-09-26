@@ -1,17 +1,24 @@
 import { StyleSheet, Text, SafeAreaView, View, Pressable, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
-import {navBar} from '../components/navBar'
+import {NavBar} from '../components/NavBar'
 
 export const TestHomeScreen = () => {
 
-    const navigation = useNavigation();
-
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
            <Text>Test Home Screen</Text>
-           <navBar/>
+           <NavBar/>
         </SafeAreaView>
 
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#5BC0BE',
+      alignItems: 'center',
+      
+    },
+  })

@@ -1,16 +1,21 @@
-import {SafeAreaView} from 'react-native'
-import {navBar} from '../components/navBar'
+import { StyleSheet, SafeAreaView, Text, View, Pressable} from 'react-native'
+import {NavBar} from '../components/NavBar'
+import {useState, useEffect} from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 export const SessionSettings = () => {
+    
+    const navigation = useNavigation();
+    
     const [gameMode, setGameMode] = useState(null);
     const [gameDifficulty, setGameDifficulty] = useState(null);
     const [instrument, setInstrument] = useState (null);
 
     useEffect (()=> {
     
-        console.log("gameMode: " + gameMode + "|| gameDifficulty " + gameDifficulty)
+        console.log("instrument: " + instrument + " ||gameMode: " + gameMode + " || gameDifficulty: " + gameDifficulty)
       }, [instrument, gameMode, gameDifficulty]);
     
     const handleModeSelection = (index) => () => {
@@ -32,30 +37,31 @@ export const SessionSettings = () => {
     navigation.navigate('ActiveGameScreen' , {
             gameMode,
             gameDifficulty,
+            instrument,
         })
     }
       
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
             {/* TITLE */}
             <Text style={styles.titleText}> Session Settings </Text>
         
             {/* INSTRUMENT SELECTION */}
             <View style={styles.gameSettingSelection}>
-                <Pressable style={gameMode === "Piano" ? styles.selected : styles.selector}
-                    onPress={handleModeSelection("Piano")}>
+                <Pressable style={instrument === "Piano" ? styles.selected : styles.selector}
+                    onPress={handleInstrumentSelection("Piano")}>
                     <Text>Piano</Text>
                 </Pressable>
-                <Pressable style={gameMode === "Bass" ? styles.selected : styles.selector}
-                    onPress={handleModeSelection("Bass")}>
+                <Pressable style={instrument === "Bass" ? styles.selected : styles.selector}
+                    onPress={handleInstrumentSelection("Bass")}>
                     <Text>Bass</Text>
                 </Pressable>
-                <Pressable style={gameMode === "Guitar" ? styles.selected : styles.selector}
-                    onPress={handleModeSelection("Guitar")}>
+                <Pressable style={instrument === "Guitar" ? styles.selected : styles.selector}
+                    onPress={handleInstrumentSelection("Guitar")}>
                     <Text>Guitar</Text>
                 </Pressable>
-                <Pressable style={gameMode === "Violin" ? styles.selected : styles.selector}
-                    onPress={handleModeSelection("Violin")}>
+                <Pressable style={instrument === "Violin" ? styles.selected : styles.selector}
+                    onPress={handleInstrumentSelection("Violin")}>
                     <Text>Violin</Text>
                 </Pressable>
             </View>
@@ -98,7 +104,7 @@ export const SessionSettings = () => {
                 <Text>UPDATE SETTINGS</Text>
             </Pressable>
     
-            <navBar/>
+            <NavBar/>
         </SafeAreaView>
     )
 }

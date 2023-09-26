@@ -1,9 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Pressable, View, SafeAreaView } from 'react-native';
-import {returnRandomNote, returnRandomChord, returnRandomNoteOrChord} from '../createnotechord.js';
-import React, { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { navBar } from '../components/navBar'
+import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { NavBar } from '../components/NavBar.js'
 
 
 
@@ -11,11 +7,18 @@ export const GameHomeScreen = () => {
     
   
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
         <Text>Game Home Screen</Text>
-        <navBar/>
+        <NavBar/>
       </SafeAreaView>
     );
   }
-
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#5BC0BE',
+      alignItems: 'center',
+      
+    },
+  })
   
