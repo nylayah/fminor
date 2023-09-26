@@ -4,7 +4,8 @@ import {useNavigation} from '@react-navigation/native';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import { Card } from '../components/elementCard';
 import {useState, useEffect} from 'react';
-import { NavBar } from '../components/NavBar'
+import { NavBar } from '../components/NavBar';
+import Carousel from 'react-native-snap-carousel'
 
 const gameModeToElementGenerator = {
     "Notes Only": () => returnRandomNote(),
@@ -71,12 +72,31 @@ export const ActiveGameScreen = () => {
             <Text style={styles.headerText}>Game Difficulty: {gameDifficulty}</Text>
           </View>
           
-          {/* array of elements to play */}
+          <Carousel
+            layout = "horizontal"
+            data = {elementsToPlay}
+            renderItem={({item}) => (
+              <Card note={item} difficulty={gameDifficulty}/>
+            )}
+            navigationButtons={
+              <NavigationButtons
+                carousel={Carousel}
+                prevButton={<Text>Prev</Text>}
+                nextButton={<Text>Next</Text>}
+              />
+
+            }
+            />
+          
+
+          {/* array of elements to play
           <View style={styles.elementsContainer}>
               {elementsToPlay.map((element) => (
                 <Card note={element} difficulty={gameDifficulty}/>
               ))}
-          </View>
+          </View> */}
+          
+          
           <View style={styles.buttonsContainer}>
             <Text>-------------------------------</Text>
             {/* Play/Pause */}
