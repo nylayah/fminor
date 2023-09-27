@@ -1,5 +1,4 @@
 import { StyleSheet, SafeAreaView, Text, View, Pressable} from 'react-native'
-import {NavBar} from '../components/NavBar'
 import {useState, useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -103,8 +102,6 @@ export const SessionSettings = () => {
             onPress={handleSetGameToStart}>
                 <Text>UPDATE SETTINGS</Text>
             </Pressable>
-    
-            <NavBar/>
         </SafeAreaView>
     )
 }

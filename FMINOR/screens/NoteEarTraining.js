@@ -1,10 +1,8 @@
 import { StyleSheet, Text, SafeAreaView, View, Pressable, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
-import {returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import { notes } from "../notesandchords.js"
-import { NavBar } from '../components/NavBar'
-import Sound from 'react-native-sound'
+// import Sound from 'react-native-sound'
 
 const gameDifficulty = {
     // easy - must choose right note
@@ -44,29 +42,29 @@ export const NoteEarTrainingSession = () => {
 
     const [noteToPlay,setNoteToPlay] = useState(null);
 
-    const playNote = async (noteFrequency) => {
-        const [audio, setAudio] = useState(null);
+    // const playNote = async (noteFrequency) => {
+    //     const [audio, setAudio] = useState(null);
         
-        useEffect(() => {
-            if (!noteFrequency) {
-                return
-            }
-            const newAudio = new Sound(noteFrequency, Sound.MAIN_BUNDLE, (error) => {
-                if (error) {
-                    console.log(error);
-                    return;
-                }
-                newAudio.play()
-                setAudio(newAudio);
-            });
-            return () => {
-                if(audio) {
-                    audio.stop();
-                    audio.release();
-                }
-            };
-        }, [noteFrequency,audio]);
-    };
+    //     useEffect(() => {
+    //         if (!noteFrequency) {
+    //             return
+    //         }
+    //         const newAudio = new Sound(noteFrequency, Sound.MAIN_BUNDLE, (error) => {
+    //             if (error) {
+    //                 console.log(error);
+    //                 return;
+    //             }
+    //             newAudio.play()
+    //             setAudio(newAudio);
+    //         });
+    //         return () => {
+    //             if(audio) {
+    //                 audio.stop();
+    //                 audio.release();
+    //             }
+    //         };
+    //     }, [noteFrequency,audio]);
+    // };
     
     const handleAnswer = async (answer) => {
         const correctAnswer = await notesToPlay[gameDifficulty]();
@@ -105,7 +103,6 @@ export const NoteEarTrainingSession = () => {
                     </Pressable>
                 ))}
             </View>
-            <NavBar/>
         </SafeAreaView>
     )
 }
