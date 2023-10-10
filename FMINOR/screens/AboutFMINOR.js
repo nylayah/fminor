@@ -5,9 +5,8 @@ import {Text} from 'react-native';
 
 
 
-
-export default function ActiveGameScreen() {
+export default function AboutFMINOR() {
     return  (
-        <Text>Active Game Screen</Text>
+        <Text>About FMINOR</Text>
     )
 }

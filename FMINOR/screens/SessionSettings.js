@@ -1,166 +1,134 @@
-import { StyleSheet, SafeAreaView, Text, View, Pressable} from 'react-native'
-import {useState, useEffect} from 'react';
-import { useNavigation } from '@react-navigation/native';
+import styles from '../assets/styling.js';
+import {SafeAreaView, Text, Pressable, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {Provider} from 'react-redux';
+import rootReducer from '../functionality/settings.js';
+import {legacy_createStore as createStore} from 'redux';
+import {useNavigation} from '@react-navigation/native';
 
-
-
-export const SessionSettings = () => {
-    
+export default function SessionSettings() {
+    const store = createStore(rootReducer);
+    const state = store.getState();
     const navigation = useNavigation();
-    
-    const [gameMode, setGameMode] = useState(null);
-    const [gameDifficulty, setGameDifficulty] = useState(null);
-    const [instrument, setInstrument] = useState (null);
 
-    useEffect (()=> {
-    
-        console.log("instrument: " + instrument + " ||gameMode: " + gameMode + " || gameDifficulty: " + gameDifficulty)
-      }, [instrument, gameMode, gameDifficulty]);
-    
-    const handleModeSelection = (index) => () => {
-        setGameMode(index);
-    }
-    
-    const handleDifficultySelection = (index) => () => {
-        setGameDifficulty(index);
-    }
-    const handleInstrumentSelection = (index) => () => {
-        setInstrument(index)
+    const handleBack = () => {
+        // Navigate to previous screen
+        navigation.goBack();
     }
 
-    const handleSetGameToStart = () => {
-    if (gameMode === null || gameDifficulty === null || instrument === null){
-        return;
-    }
-    ///CHANGE GLOBAL SETTINGS --> should notify successful change
-    navigation.navigate('ActiveGameScreen' , {
-            gameMode,
-            gameDifficulty,
-            instrument,
+    const toggleLightMode = () => {
+        store.dispatch({
+            type: 'TOGGLE_LIGHT_MODE',
         })
     }
-      
+
+    const toggleMicReducer = () => {
+        store.dispatch({
+            type: 'TOGGLE_MIC',
+        })
+    }
+    const selectDifficulty = (difficulty) => {
+        store.dispatch({
+            type: 'SELECT_DIFFICULTY',
+            payload: difficulty,
+        })
+    }
+    const selectInstrument = (instrument) => {
+        store.dispatch({
+            type: 'SELECT_INSTRUMENT',
+            payload: instrument,
+        })
+    }
+    const selectPracticeMode = (practiceMode) => {
+        store.dispatch({
+            type: 'SELECT_PRACTICE_MODE',
+            payload: practiceMode,
+        })
+    }
+
+
     return (
-        <SafeAreaView style={styles.container}>
-            {/* TITLE */}
-            <Text style={styles.titleText}> Session Settings </Text>
-        
-            {/* INSTRUMENT SELECTION */}
-            <View style={styles.gameSettingSelection}>
-                <Pressable style={instrument === "Piano" ? styles.selected : styles.selector}
-                    onPress={handleInstrumentSelection("Piano")}>
-                    <Text>Piano</Text>
-                </Pressable>
-                <Pressable style={instrument === "Bass" ? styles.selected : styles.selector}
-                    onPress={handleInstrumentSelection("Bass")}>
-                    <Text>Bass</Text>
-                </Pressable>
-                <Pressable style={instrument === "Guitar" ? styles.selected : styles.selector}
-                    onPress={handleInstrumentSelection("Guitar")}>
-                    <Text>Guitar</Text>
-                </Pressable>
-                <Pressable style={instrument === "Violin" ? styles.selected : styles.selector}
-                    onPress={handleInstrumentSelection("Violin")}>
-                    <Text>Violin</Text>
-                </Pressable>
-            </View>
+        <Provider store={store}>
+            <SafeAreaView style={state.lightMode ? styles.lightScreenContainer : styles.darkScreenContainer}>
+                <Text style={styles.text}>Session Settings</Text>
 
-            {/* GAME MODE SELECTION */}
-            <View style={styles.gameSettingSelection}>
-                <Pressable style={gameMode === "Notes Only" ? styles.selected : styles.selector}
-                    onPress={handleModeSelection("Notes Only")}>
-                    <Text>Notes Only</Text>
-                </Pressable>
-                <Pressable style={gameMode === "Chords Only" ? styles.selected : styles.selector}
-                    onPress={handleModeSelection("Chords Only")}>
-                    <Text>Chords Only</Text>
-                </Pressable>
-                <Pressable style={gameMode === "Notes and Chords" ? styles.selected : styles.selector}
-                    onPress={handleModeSelection("Notes and Chords")}>
-                    <Text>Mix</Text>
-                </Pressable>
-            </View>
-        
-            {/* GAME DIFFICULTY SELECTION */}
-            <View style={styles.gameSettingSelection}>
-                <Pressable style={gameDifficulty === "Easy" ? styles.selected : styles.selector}
-                    onPress={handleDifficultySelection("Easy")}>
-                    <Text>Easy</Text>
-                </Pressable>
-                <Pressable style={gameDifficulty === "Medium" ? styles.selected : styles.selector}
-                    onPress={handleDifficultySelection("Medium")}>
-                    <Text>Medium</Text>
-                </Pressable>
-                <Pressable style={gameDifficulty === "Hard" ? styles.selected : styles.selector}
-                    onPress={handleDifficultySelection("Hard")}>
-                    <Text>Hard</Text>
-                </Pressable>
-            </View>
-  
-            {/* UPDATE BUTTON */}
-            <Pressable style={styles.startButton}
-            onPress={handleSetGameToStart}>
-                <Text>UPDATE SETTINGS</Text>
-            </Pressable>
-        </SafeAreaView>
-    )
-}
+                {/* LIGHT MODE SELECTION */}
+                <View style={state.lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style={styles.text}>Light Mode: {state.lightMode ? 'On' : 'Off'}</Text>
+                    <Pressable style={styles.button} onPress={toggleLightMode}>
+                        <Text style={styles.buttonText}>Toggle Light Mode</Text>
+                    </Pressable>
+                </View>
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#5BC0BE',
-      alignItems: 'center',
-      alignContent:'center',
-      justifyContent: 'space-evenly',
-      paddingTop: '10%',
-      paddingBottom: '10%',
-      textAlign: 'center'
-     
-  
-    },
-    gameSettingSelection: {
-      flexDirection: 'row',
-      backgroundColor: '#5BC0BE',
-      justifyContent:'center',
-      alignContent:'center',
-    },
-    selector: {
-      backgroundColor: 'white',
-      alignItems: 'center',
-      textAlign: 'center',
-      color: '#fff',
-      borderRadius: 10,
-      fontSize:10,
-      padding:'5%',
-      alignContent: 'center',
-      marginHorizontal: 5,
-      borderWidth: "1px"
-    },
-    selected: {
-      backgroundColor: 'pink',
-      alignItems: 'center',
-      textAlign: 'center',
-      color: '#fff',
-      borderRadius: 10,
-      fontSize:10,
-      padding:'5%',
-      alignContent: 'center',
-      marginHorizontal: 5,
-    },
-    titleText: {
-      fontSize: 40,
-      fontWeight: "bold",
-      color: '#fff',
-    },
-    startButton: {
-      backgroundColor: 'white',
-      alignItems: 'center',
-      textAlign: 'center',
-      color: '#5BC0BE',
-      borderRadius: 360,
-      fontSize:10,
-      padding:'2%',
-      borderWidth:'1px'
-    },
-  })
+                {/* MIC SELECTION */}
+                <View style={state.lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style={styles.text}>Mic: {state.micOn ? 'On' : 'Off'}</Text>
+                    <Pressable style={styles.button} onPress={toggleMicReducer}>
+                        <Text style={styles.buttonText}>Toggle Mic</Text>
+                    </Pressable>
+                </View>
+
+                {/* DIFFICULTY SELECTION */}
+                <View style={state.lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style={styles.text}>Difficulty: {state.difficulty}</Text>
+                    <View style={state.lightMode ? styles.lightViewH : styles.darkViewH}>
+                        <Pressable style={styles.button} onPress={selectDifficulty('Easy')}>
+                            <Text style={styles.buttonText}>Easy</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectDifficulty('Medium')}>
+                            <Text style={styles.buttonText}>Medium</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectDifficulty('Hard')}>
+                            <Text style={styles.buttonText}>Hard</Text>
+                        </Pressable>
+                    </View>
+                </View>
+
+                {/* INSTRUMENT SELECTION */}
+                <View style={state.lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style={styles.text}>Instrument: {state.instrument}</Text>
+                    <View style={state.lightMode ? styles.lightViewH : styles.darkViewH}>
+                        <Pressable style={styles.button} onPress={selectInstrument('Piano')}>
+                            <Text style={styles.buttonText}>Piano</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectInstrument('Guitar')}>
+                            <Text style={styles.buttonText}>Guitar</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectInstrument('Bass')}>
+                            <Text style={styles.buttonText}>Bass</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectInstrument('Violin')}>
+                            <Text style={styles.buttonText}>Violin</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectInstrument('Voice')}>
+                            <Text style={styles.buttonText}>Voice</Text>
+                        </Pressable>
+                    </View>
+                </View>
+
+                {/* PRACTICE MATERIAL SELECTION */}
+                <View style={state.lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style={styles.text}>Practice Material: {state.practiceMaterial}</Text>
+                    <View style={state.lightMode ? styles.lightViewH : styles.darkViewH}>
+                        <Pressable style={styles.button} onPress={selectPracticeMode('Notes')}>
+                            <Text style={styles.buttonText}>Scales</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectPracticeMode('Chords')}>
+                            <Text style={styles.buttonText}>Chords</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={selectPracticeMode('Both')}>
+                            <Text style={styles.buttonText}>Both</Text>
+                        </Pressable>
+                    </View>
+                </View>
+
+
+                {/* GO TO PREVIOUS SCREEN */}
+                <Pressable style={styles.button} onPress={handleBack}>
+                    <Text style={styles.buttonText}>Back</Text>
+                </Pressable>
+            </SafeAreaView>
+        </Provider>
+      )
+      
+    }
