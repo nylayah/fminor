@@ -20,19 +20,36 @@ const styles = StyleSheet.create({
         backgroundColor: colors.ten,
         alignItems: 'center',
         justifyContent: 'center',
+        textAlign: 'center',
     },
-    text: {
+    lightModeText: {
         color: colors.thirty,
         fontSize: 20,
         fontWeight: 'bold',
     },
-    button : {
+    lightButton : {
         backgroundColor: colors.ten,
         padding: 10,
         borderRadius: 5,
         margin: 10,
     },
-    buttonText: {
+    lightButtonText: {
+        color: colors.thirty,
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    darkModeText: {
+        color: colors.ten,
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    darkButton : {
+        backgroundColor: colors.ten,
+        padding: 10,
+        borderRadius: 5,
+        margin: 10,
+    },
+    darkButtonText: {
         color: colors.thirty,
         fontSize: 20,
         fontWeight: 'bold',
@@ -61,6 +78,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 10,
         flexDirection: 'column',
+        textAlign: 'center',
 
     },
     darkViewH: {
@@ -69,6 +87,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 10,
         flexDirection: 'row',
+        textAlign: 'center',
     },
 
   

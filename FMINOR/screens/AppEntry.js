@@ -2,14 +2,13 @@ import styles from '../assets/styling';
 import React from 'react';
 import {SafeAreaView, Text, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Provider} from 'react-redux';
-import rootReducer from '../functionality/settings.js';
-import {legacy_createStore as createStore} from 'redux';
+import  {useSelector} from 'react-redux';
 
 export default function AppEntry() {
-  const store = createStore(rootReducer);
-  const state = store.getState();
   const navigation = useNavigation();
+  const state = useSelector((state) => state);
+
+  console.log(state);
 
   // Navigate to Active Game Screen
   const handleStartSession = () => {
@@ -28,20 +27,18 @@ export default function AppEntry() {
 
 
       return (
-        <Provider store={store}>
-          <SafeAreaView style={ state.lightMode ? styles.lightScreenContainer : styles.darkScreenContainer}>
-              <Text style={styles.text}>F M I N O R</Text>
-              <Pressable style={styles.button} onPress={handleStartSession}>
-                  <Text style={styles.buttonText}>Start Session</Text>
+          <SafeAreaView style={state.lightMode ? styles.lightScreenContainer : styles.darkScreenContainer}>
+              <Text style={state.lightMode ? styles.lightModeText : styles.darkModeText}>F M I N O R</Text>
+              <Pressable style={state.lightMode ? styles.lightButton : styles.darkButton} onPress={handleStartSession}>
+                  <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}>Start Session</Text>
               </Pressable>
-              <Pressable style={styles.button} onPress={handleSessionSettings}>
-                  <Text style={styles.buttonText}>Session Settings</Text>
+              <Pressable style={state.lightMode ? styles.lightButton: styles.darkButton} onPress={handleSessionSettings}>
+                  <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}>Session Settings</Text>
               </Pressable>
-              <Pressable style={styles.button} onPress={handleAboutFMINOR}>
-                  <Text style={styles.buttonText}>About FMINOR</Text>
+              <Pressable style={state.lightMode ? styles.lightButton : styles.darkButton } onPress={handleAboutFMINOR}>
+                  <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}>About FMINOR</Text>
               </Pressable>
           </SafeAreaView>
-        </Provider>
       )  
   }
 
