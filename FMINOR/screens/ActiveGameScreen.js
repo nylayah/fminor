@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import ChoiceSelection from '../components/ChoicesSelection';
-import {musicPlaying} from '../components/musicPlaying'
+import MusicPlaying from '../components/musicPlaying'
 
 
 
@@ -156,11 +156,17 @@ export default function ActiveGameScreen() {
             {/* Display Current Element */}
             <View>
                 {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>{currentElement}</Text> */}
-                <musicPlaying currElement = {currentElement}/>
-                <Text style={lightMode ? styles.backButtonL : styles.backButton}> What note is playing? </Text>   
+                <View style ={{alignItems:'center'}}>
+                    <MusicPlaying/>
+                </View>
+                
             </View>
+
             {/* Display Choices */}
             <View style={localStyles.choicesView}>
+                <View style = {lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style={lightMode ? styles.backButtonL : styles.backButton}> Which note is playing? </Text>   
+                </View>
                 {choices && choices.map((choice, index) => (
                         <Pressable 
                             key = {index} 
@@ -171,10 +177,6 @@ export default function ActiveGameScreen() {
                 ))}
 
             </View>
-
-            
-
-
         </SafeAreaView>
     )
 }

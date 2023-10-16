@@ -2,7 +2,7 @@ import styles from '../assets/styling';
 import React from 'react';
 import {SafeAreaView, Text, Pressable, View, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import  {useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 export default function AppEntry() {
   const navigation = useNavigation();
