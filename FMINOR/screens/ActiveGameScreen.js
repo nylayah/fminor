@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
 import ChoiceSelection from '../components/ChoicesSelection';
+import {musicPlaying} from '../components/musicPlaying'
 
 
 
@@ -155,6 +156,7 @@ export default function ActiveGameScreen() {
             {/* Display Current Element */}
             <View>
                 {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>{currentElement}</Text> */}
+                <musicPlaying currElement = {currentElement}/>
                 <Text style={lightMode ? styles.backButtonL : styles.backButton}> What note is playing? </Text>   
             </View>
             {/* Display Choices */}
