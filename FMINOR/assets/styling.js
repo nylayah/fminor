@@ -43,42 +43,58 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.surface100L,
         alignItems: 'center',
-        justifyContent: 'center',
         textAlign: 'center',
+        justifyContent: 'center',
+        fontFamily: 'system-ui',
+    },
+    lightHeader:{
+        width: '100%',
+        height: '10%',
+        backgroundColor: colors.surface300L,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        position: 'absolute',
+        top: 0,
+      
+
     },
     lightModeText: {
-        color: 'black',
+        color: colors.secondarytext,
         fontSize: 20,
+        textAlign: 'center',
     },
     lightButton : {
         backgroundColor: colors.primary500,
         padding: 10,
         borderRadius: 5,
         margin: 10,
-        color: 'black'
+        color: 'black',
     },
-    // lightButtonText: {
-    //     color: colors.thirty,
-    //     fontSize: 20,
-    //     fontWeight: 'bold',
-    // },
+    lightButtonText: {
+        color: 'black',
+        fontSize: 20,
+        textAlign: 'center',
+       
+    },
     lightViewH: {
-        backgroundColor: colors.surface200L,
-        padding: 10,
-        borderRadius: 5,
-        margin: 10,
         flexDirection: 'row',
         textAlign: 'center',
+        justifyContent: 'space-between',
+        display: 'flex',
+        
     },
     lightViewV: {  
-        backgroundColor: colors.surface200L,
-        padding: 10,
-        borderRadius: 5,
-        margin: 10,
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
+        
 
+    },
+    backButtonL: {
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontSize: 20,
+        color: colors.secondarytext
     },
     // ----------------------------------------------Dark Theme----------------------------------------------------------
     darkScreenContainer: {
@@ -88,40 +104,50 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
     },
+    darkHeader:{
+        width: '100%',
+        height: '10%',
+        backgroundColor: colors.surface200,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        position: 'absolute',
+        top: 0,
+    },
     
     darkModeText: {
         color: 'white',
         fontSize: 20,
+        textAlign: 'center',    
     },
     darkButton : {
         backgroundColor: colors.primary500,
         padding: 10,
         borderRadius: 5,
         margin: 10,
+        color:'black'
     },
     darkButtonText: {
         color: colors.surface100,
         fontSize: 20,
+        textAlign: 'center',
     },
     darkViewV: {
-        backgroundColor: colors.surface200,
-        padding: 10,
-        borderRadius: 5,
-        margin: 10,
-        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
         textAlign: 'center',
 
     },
     darkViewH: {
-        backgroundColor: colors.surface200,
-        padding: 10,
-        borderRadius: 5,
-        margin: 10,
         flexDirection: 'row',
         textAlign: 'center',
     },
-
-  
+    //--------------------------------Miscellaneous--------------------------------
+    backButton: {
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontSize: 20,
+        color: colors.primarytext
+    }
 });
 
 export default styles;

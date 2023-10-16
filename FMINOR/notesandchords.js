@@ -89,7 +89,7 @@ const notes = {
 
     },
     "C#1" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 1,
         frequency: 34.65,
@@ -97,7 +97,7 @@ const notes = {
 
     },
     "C#2" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 2,
         frequency: 69.30,
@@ -105,7 +105,7 @@ const notes = {
 
     },
     "C#3" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 3,
         frequency: 138.59,
@@ -113,7 +113,7 @@ const notes = {
 
     },
     "C#4" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 4,
         frequency: 277.18,
@@ -121,7 +121,7 @@ const notes = {
 
     },
     "C#5" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 5,
         frequency: 554.37,
@@ -129,7 +129,7 @@ const notes = {
 
     },
     "C#6" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 6,
         frequency: 1108.73,
@@ -137,7 +137,7 @@ const notes = {
 
     },
     "C#7" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 7,
         frequency: 2217.46,
@@ -145,7 +145,7 @@ const notes = {
 
     },
     "C#8" : {
-        letterGroup: "C#",
+        letterGroup: "C",
         accidental: 1,
         octave: 8,
         frequency: 4434.92,
@@ -226,7 +226,7 @@ const notes = {
 
     },
     "D#0" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 0,
         frequency: 19.45,
@@ -234,7 +234,7 @@ const notes = {
 
     },
     "D#1" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 1,
         frequency: 38.89,
@@ -242,7 +242,7 @@ const notes = {
 
     },
     "D#2" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 2,
         frequency: 77.78,
@@ -250,7 +250,7 @@ const notes = {
 
     },
     "D#3" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 3,
         frequency: 155.56,
@@ -258,7 +258,7 @@ const notes = {
 
     },
     "D#4" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 4,
         frequency: 311.13,
@@ -266,7 +266,7 @@ const notes = {
 
     },
     "D#5" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 5,
         frequency: 622.25,
@@ -274,7 +274,7 @@ const notes = {
 
     },
     "D#6" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 6,
         frequency: 1244.51,
@@ -282,7 +282,7 @@ const notes = {
 
     },
     "D#7" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 7,
         frequency: 2489.02,
@@ -290,7 +290,7 @@ const notes = {
 
     },
     "D#8" : {
-        letterGroup: "D#",
+        letterGroup: "D",
         accidental: 1,
         octave: 8,
         frequency: 4978.03,
@@ -298,7 +298,7 @@ const notes = {
 
     },
     "Db0" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 0,
         frequency: 17.32,
@@ -306,7 +306,7 @@ const notes = {
 
     },
     "Db1" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 1,
         frequency: 34.65,
@@ -314,7 +314,7 @@ const notes = {
 
     },
     "Db2" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 2,
         frequency: 69.30,
@@ -322,7 +322,7 @@ const notes = {
 
     },
     "Db3" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 3,
         frequency: 138.59,
@@ -330,7 +330,7 @@ const notes = {
 
     },
     "Db4" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 4,
         frequency: 277.18,
@@ -338,7 +338,7 @@ const notes = {
 
     },
     "Db5" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 5,
         frequency: 554.37,
@@ -346,7 +346,7 @@ const notes = {
 
     },
     "Db6" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 6,
         frequency: 1108.73,
@@ -354,7 +354,7 @@ const notes = {
 
     },
     "Db7" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 7,
         frequency: 2217.46,
@@ -362,7 +362,7 @@ const notes = {
 
     },
     "Db8" : {
-        letterGroup: "Db",
+        letterGroup: "D",
         accidental: 2,
         octave: 8,
         frequency: 4434.92,
@@ -443,7 +443,7 @@ const notes = {
 
     },
     "Eb0" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 0,
         frequency: 19.45,
@@ -451,7 +451,7 @@ const notes = {
 
     },
     "Eb1" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 1,
         frequency: 38.89,
@@ -459,7 +459,7 @@ const notes = {
 
     },
     "Eb2" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 2,
         frequency: 77.78,
@@ -467,7 +467,7 @@ const notes = {
 
     },
     "Eb3" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 3,
         frequency: 155.56,
@@ -475,7 +475,7 @@ const notes = {
 
     },
     "Eb4" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 4,
         frequency: 311.13,
@@ -483,7 +483,7 @@ const notes = {
 
     },
     "Eb5" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 5,
         frequency: 622.25,
@@ -491,7 +491,7 @@ const notes = {
 
     },
     "Eb6" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 6,
         frequency: 1244.51,
@@ -499,7 +499,7 @@ const notes = {
 
     },
     "Eb7" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 7,
         frequency: 2489.02,
@@ -507,7 +507,7 @@ const notes = {
 
     },
     "Eb8" : {
-        letterGroup: "Eb",
+        letterGroup: "E",
         accidental: 2,
         octave: 8,
         frequency: 4978.03,
@@ -589,7 +589,7 @@ const notes = {
 
     },
     "F#0" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 0,
         frequency: 23.12,
@@ -597,7 +597,7 @@ const notes = {
 
     },
     "F#1" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 1,
         frequency: 46.25,
@@ -605,7 +605,7 @@ const notes = {
 
     },
     "F#2" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 2,
         frequency: 92.50,
@@ -613,7 +613,7 @@ const notes = {
 
     },
     "F#3" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 3,
         frequency: 185.00,
@@ -621,7 +621,7 @@ const notes = {
 
     },
     "F#4" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 4,
         frequency: 369.99,
@@ -629,7 +629,7 @@ const notes = {
 
     },
     "F#5" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 5,
         frequency: 739.99,
@@ -637,7 +637,7 @@ const notes = {
 
     },
     "F#6" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 6,
         frequency: 1479.98,
@@ -645,7 +645,7 @@ const notes = {
 
     },
     "F#7" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 7,
         frequency: 2959.96,
@@ -653,7 +653,7 @@ const notes = {
 
     },
     "F#8" : {
-        letterGroup: "F#",
+        letterGroup: "F",
         accidental: 1,
         octave: 8,
         frequency: 5919.91,
@@ -734,7 +734,7 @@ const notes = {
 
     },
     "G#0" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 0,
         frequency: 25.96,
@@ -742,7 +742,7 @@ const notes = {
 
     },
     "G#1" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 1,
         frequency: 51.91,
@@ -750,7 +750,7 @@ const notes = {
 
     },
     "G#2" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 2,
         frequency: 103.83,
@@ -758,7 +758,7 @@ const notes = {
 
     },
     "G#3" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 3,
         frequency: 207.65,
@@ -766,7 +766,7 @@ const notes = {
 
     },
     "G#4" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 4,
         frequency: 415.30,
@@ -774,7 +774,7 @@ const notes = {
 
     },
     "G#5" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 5,
         frequency: 830.61,
@@ -782,7 +782,7 @@ const notes = {
 
     },
     "G#6" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 6,
         frequency: 1661.22,
@@ -790,7 +790,7 @@ const notes = {
 
     },
     "G#7" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 7,
         frequency: 3322.44,
@@ -798,7 +798,7 @@ const notes = {
 
     },
     "G#8" : {
-        letterGroup: "G#",
+        letterGroup: "G",
         accidental: 1,
         octave: 8,
         frequency: 6644.88,
@@ -806,7 +806,7 @@ const notes = {
 
     },
     "Gb0" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 0,
         frequency: 23.12,
@@ -814,7 +814,7 @@ const notes = {
 
     },
     "Gb1" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 1,
         frequency: 46.25,
@@ -822,7 +822,7 @@ const notes = {
 
     },
     "Gb2" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 2,
         frequency: 92.50,
@@ -830,7 +830,7 @@ const notes = {
 
     },
     "Gb3" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 3,
         frequency: 185.00,
@@ -838,7 +838,7 @@ const notes = {
 
     },
     "Gb4" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 4,
         frequency: 369.99,
@@ -846,7 +846,7 @@ const notes = {
 
     },
     "Gb5" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 5,
         frequency: 739.99,
@@ -854,7 +854,7 @@ const notes = {
 
     },
     "Gb6" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 6,
         frequency: 1479.98,
@@ -862,7 +862,7 @@ const notes = {
 
     },
     "Gb7" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 7,
         frequency: 2959.96,
@@ -870,7 +870,7 @@ const notes = {
 
     },
     "Gb8" : {
-        letterGroup: "Gb",
+        letterGroup: "G",
         accidental: 2,
         octave: 8,
         frequency: 5919.91,
@@ -951,7 +951,7 @@ const notes = {
 
     },
     "A#0" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 0,
         frequency: 29.14,
@@ -959,7 +959,7 @@ const notes = {
 
     },
     "A#1" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 1,
         frequency: 58.27,
@@ -967,7 +967,7 @@ const notes = {
 
     },
     "A#2" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 2,
         frequency: 116.54,
@@ -975,7 +975,7 @@ const notes = {
 
     },
     "A#3" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 3,
         frequency: 233.08,
@@ -983,7 +983,7 @@ const notes = {
 
     },
     "A#4" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 4,
         frequency: 466.16,
@@ -991,7 +991,7 @@ const notes = {
 
     },
     "A#5" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 5,
         frequency: 932.33,
@@ -999,7 +999,7 @@ const notes = {
 
     },
     "A#6" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 6,
         frequency: 1864.66,
@@ -1007,7 +1007,7 @@ const notes = {
 
     },
     "A#7" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 7,
         frequency: 3729.31,
@@ -1015,7 +1015,7 @@ const notes = {
 
     },
     "A#8" : {
-        letterGroup: "A#",
+        letterGroup: "A",
         accidental: 1,
         octave: 8,
         frequency: 7458.62,
@@ -1023,7 +1023,7 @@ const notes = {
 
     },
     "Ab0" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 0,
         frequency: 25.96,
@@ -1031,7 +1031,7 @@ const notes = {
 
     },
     "Ab1" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 1,
         frequency: 51.91,
@@ -1039,7 +1039,7 @@ const notes = {
 
     },
     "Ab2" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 2,
         frequency: 103.83,
@@ -1047,7 +1047,7 @@ const notes = {
 
     },
     "Ab3" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 3,
         frequency: 207.65,
@@ -1055,7 +1055,7 @@ const notes = {
 
     },
     "Ab4" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 4,
         frequency: 415.30,
@@ -1063,7 +1063,7 @@ const notes = {
 
     },
     "Ab5" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 5,
         frequency: 830.61,
@@ -1071,7 +1071,7 @@ const notes = {
 
     },
     "Ab6" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 6,
         frequency: 1661.22,
@@ -1079,7 +1079,7 @@ const notes = {
 
     },
     "Ab7" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 7,
         frequency: 3322.44,
@@ -1087,7 +1087,7 @@ const notes = {
 
     },
     "Ab8" : {
-        letterGroup: "Ab",
+        letterGroup: "A",
         accidental: 2,
         octave: 8,
         frequency: 6644.88,
@@ -1168,7 +1168,7 @@ const notes = {
 
     },
     "Bb0" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 0,
         frequency: 29.14,
@@ -1176,7 +1176,7 @@ const notes = {
 
     },
     "Bb1" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 1,
         frequency: 58.27,
@@ -1184,7 +1184,7 @@ const notes = {
 
     },
     "Bb2" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 2,
         frequency: 116.54,
@@ -1192,7 +1192,7 @@ const notes = {
 
     },
     "Bb3" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 3,
         frequency: 233.08,
@@ -1200,7 +1200,7 @@ const notes = {
 
     },
     "Bb4" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 4,
         frequency: 466.16,
@@ -1208,7 +1208,7 @@ const notes = {
 
     },
     "Bb5" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 5,
         frequency: 932.33,
@@ -1216,7 +1216,7 @@ const notes = {
 
     },
     "Bb6" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 6,
         frequency: 1864.66,
@@ -1224,7 +1224,7 @@ const notes = {
 
     },
     "Bb7" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 7,
         frequency: 3729.31,
@@ -1232,7 +1232,7 @@ const notes = {
 
     },
     "Bb8" : {
-        letterGroup: "Bb",
+        letterGroup: "B",
         accidental: 2,
         octave: 8,
         frequency: 7458.62,
@@ -1246,12 +1246,12 @@ const notes = {
 
 const majorchords = {
     "C": ["C", "E", "G"],
-    "D": ["D", "F#", "A"],
-    "E": ["E", "G#", "B"],
+    "D": ["D", "F", "A"],
+    "E": ["E", "G", "B"],
     "F": ["F", "A", "C"],
     "G": ["G", "B", "D"],
-    "A": ["A", "C#", "E"],
-    "B": ["B", "D#", "F#"],
+    "A": ["A", "C", "E"],
+    "B": ["B", "D", "F"],
 };
 
 export {notes, majorchords};

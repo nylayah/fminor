@@ -1,10 +1,11 @@
 import React from 'react';
-import {SafeAreaView, Text, View, Pressable} from 'react-native';
+import {SafeAreaView, Text, View, Pressable, StyleSheet} from 'react-native';
 import styles from '../assets/styling';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { returnRandomNote, returnRandomChord, returnRandomNoteOrChord } from '../createnotechord';
+import ChoiceSelection from '../components/ChoicesSelection';
 
 
 
@@ -135,30 +136,55 @@ export default function ActiveGameScreen() {
 
     return  (
         <SafeAreaView style= {lightMode ? styles.lightScreenContainer : styles.darkScreenContainer}>
-            <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Active Game Screen</Text>
+            {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Active Game Screen</Text> */}
+            
+            {/* Game Header */}
+            <View style={lightMode ? styles.lightHeader : styles.darkHeader}>
+                {/* Display Back Button */}
+                <Pressable style = {lightMode ? styles.backButtonL : styles.backButton} onPress={handleBack}>
+                    <Text style={lightMode ? styles.lightButtonText : styles.darkModeText}> ← </Text>
+                </Pressable>
+                <View style={lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Difficulty: {difficulty}</Text>
+                </View>
+                <View style={lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Mode: {practiceMode}</Text>
+                </View>
+            </View>
 
             {/* Display Current Element */}
-            <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>{currentElement}</Text>
-
+            <View>
+                {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>{currentElement}</Text> */}
+                <Text style={lightMode ? styles.backButtonL : styles.backButton}> What note is playing? </Text>   
+            </View>
             {/* Display Choices */}
-            <View style={lightMode ? styles.lightViewVertical : styles.darkViewVertical}>
+            <View style={localStyles.choicesView}>
                 {choices && choices.map((choice, index) => (
                         <Pressable 
                             key = {index} 
                             style={lightMode ? styles.lightButton : styles.darkButton} 
-                            onPress={() => handleUserChoice(choice)}>
-                            <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>{choice}</Text>
+                            onPress={handleUserChoice(choice)}>
+                                <ChoiceSelection choice={choice} choiceDifficulty= {difficulty}/>
                         </Pressable>
                 ))}
 
             </View>
 
-            {/* Display Back Button */}
-            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={handleBack}>
-                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Back</Text>
-            </Pressable>
+            
 
 
         </SafeAreaView>
     )
 }
+
+const localStyles = StyleSheet.create({
+    choicesView: {
+        flexDirection: 'row',
+        position: 'absolute',
+        bottom: 0,
+        alignContent: 'center',
+        paddingBottom: 150,
+        
+    },
+}
+)
