@@ -4,58 +4,66 @@ const colors = {
     sixty: '#FFCDB2',
     thirty: '#B5838D',
     ten: '#6D6875',
+    
+    // -----------------------------------------Light Theme----------------------------------------------------
+
+    // light color surface shades
+    surface100L: '#f1f5f4',
+    surface200L: '#f3f6f5',
+    surface300L: '#f4f7f6',
+    surface400L: '#f6f8f8',
+    surface500L: '#f7f9f9',
+    surface600L: '#f9fbfa',
+    
+    // ------------------------------------------Dark Theme-------------------------------------------------------
+    // primary color shades
+    primary100: '#7ba098',
+    primary200: '#89aaa3',
+    primary300: '#98b5ae',
+    primary400: '#b4c9c5',
+    primary500: '#c3d4d0',
+
+    // dark color surface shades
+    surface100: '#121212',
+    surface200: '#282828',
+    surface300: '#3f3f3f',
+    surface400: '#575757',
+    surface500: '#717171',
+    surface600: '#8b8b8b',
+
+    //text
+    primarytext: '#e4e4e7',
+    secondarytext: '#71717a'
 }
 
 const styles = StyleSheet.create({
+
+    // -----------------------------------------Light Theme-------------------------------------------------------
     lightScreenContainer: {
         flex: 1,
-        backgroundColor: colors.sixty,
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-
-    },
-    darkScreenContainer: {
-        flex: 1,
-        backgroundColor: colors.ten,
+        backgroundColor: colors.surface100L,
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
     },
     lightModeText: {
-        color: colors.thirty,
+        color: 'black',
         fontSize: 20,
-        fontWeight: 'bold',
     },
     lightButton : {
-        backgroundColor: colors.ten,
+        backgroundColor: colors.primary500,
         padding: 10,
         borderRadius: 5,
         margin: 10,
+        color: 'black'
     },
-    lightButtonText: {
-        color: colors.thirty,
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    darkModeText: {
-        color: colors.ten,
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    darkButton : {
-        backgroundColor: colors.ten,
-        padding: 10,
-        borderRadius: 5,
-        margin: 10,
-    },
-    darkButtonText: {
-        color: colors.thirty,
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
+    // lightButtonText: {
+    //     color: colors.thirty,
+    //     fontSize: 20,
+    //     fontWeight: 'bold',
+    // },
     lightViewH: {
-        backgroundColor: colors.sixty,
+        backgroundColor: colors.surface200L,
         padding: 10,
         borderRadius: 5,
         margin: 10,
@@ -63,7 +71,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     lightViewV: {  
-        backgroundColor: colors.sixty,
+        backgroundColor: colors.surface200L,
         padding: 10,
         borderRadius: 5,
         margin: 10,
@@ -72,8 +80,31 @@ const styles = StyleSheet.create({
         textAlign: 'center',
 
     },
+    // ----------------------------------------------Dark Theme----------------------------------------------------------
+    darkScreenContainer: {
+        flex: 1,
+        backgroundColor: colors.surface100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+    },
+    
+    darkModeText: {
+        color: 'white',
+        fontSize: 20,
+    },
+    darkButton : {
+        backgroundColor: colors.primary500,
+        padding: 10,
+        borderRadius: 5,
+        margin: 10,
+    },
+    darkButtonText: {
+        color: colors.surface100,
+        fontSize: 20,
+    },
     darkViewV: {
-        backgroundColor: colors.ten,
+        backgroundColor: colors.surface200,
         padding: 10,
         borderRadius: 5,
         margin: 10,
@@ -82,7 +113,7 @@ const styles = StyleSheet.create({
 
     },
     darkViewH: {
-        backgroundColor: colors.ten,
+        backgroundColor: colors.surface200,
         padding: 10,
         borderRadius: 5,
         margin: 10,
