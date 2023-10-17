@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     darkViewH: {
         flexDirection: 'row',
         textAlign: 'center',
+        justifyContent: 'space-between',
     },
     //--------------------------------Miscellaneous--------------------------------
     backButton: {

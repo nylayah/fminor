@@ -16,7 +16,7 @@ export default function ActiveGameScreen() {
     const navigation = useNavigation();
     // importing session settings from redux store
     const difficulty = useSelector((state) => state.difficulty);
-    const instrument = useSelector((state) => state.instrument);
+    //const instrument = useSelector((state) => state.instrument);
     const practiceMode = useSelector((state) => state.practiceMode);
     const lightMode = useSelector((state) => state.lightMode);
 
@@ -27,9 +27,9 @@ export default function ActiveGameScreen() {
         'Hard': 30,
     }
     const numChoices = {
-        'Easy': 4,  
-        'Medium': 6,
-        'Hard': 8,
+        'Easy': 3,  
+        'Medium': 5,
+        'Hard': 7,
     }
 
     // returns a dictionary of elements to play
@@ -38,22 +38,8 @@ export default function ActiveGameScreen() {
         const lengths = gameLengths[difficulty];
         const elementsToPlay = {};
         for (let i = 0 ; i < lengths; i++) {
-            switch (practiceMode) {
-                case "Notes":
-                    const note = returnRandomNote();
-                    elementsToPlay[note]= elementsToChooseFrom(note);
-                    break;
-                case "Chords":
-                    const chord = returnRandomChord();
-                    elementsToPlay[chord]= elementsToChooseFrom(chord);
-                    break;
-                case "Both":
-                    const noteOrChord = returnRandomNoteOrChord();
-                    elementsToPlay[noteOrChord]= elementsToChooseFrom(noteOrChord);
-                    break;
-                default:
-                    throw new Error (`Invalid practice mode: ${practiceMode}`);
-            }
+            const note = returnRandomNote();
+            elementsToPlay[note]= elementsToChooseFrom(note);       
         }
         return elementsToPlay;
 
@@ -67,20 +53,9 @@ export default function ActiveGameScreen() {
         elementsToChooseFrom.push(correctAnswer);
 
         for (let i = 0 ; i < choicesNum; i++) {
-            switch (practiceMode) {
-                case "Notes":
-                    elementsToChooseFrom.push(returnRandomNote());
-                    break;
-                case "Chords":
-                    elementsToChooseFrom.push(returnRandomChord());
-                    break;
-                case "Both":
-                    elementsToChooseFrom.push(returnRandomNoteOrChord());
-                    break;
-                default:
-                    throw new Error (`Invalid practice mode: ${practiceMode}`);
-            }
-        }
+        
+            elementsToChooseFrom.push(returnRandomNote());
+        }       
         return shuffleArray(elementsToChooseFrom);
     }
     
@@ -95,13 +70,14 @@ export default function ActiveGameScreen() {
     
     const [elements, setElements] = useState({});
     const [currentElementIndex, setCurrentElementIndex] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState('')
 
     useEffect(() => {
         setElements(elementsToPlay());
       }, [difficulty, practiceMode, currentElementIndex]);
       
-
+    const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+    const [incorrectChoices, setIncorrectChoices] = useState([]);
+    
     // handles user choice
     const handleUserChoice = (choice) => () => {
         const currentElement = Object.keys(elements)[currentElementIndex];
@@ -111,24 +87,31 @@ export default function ActiveGameScreen() {
           setCurrentElementIndex((prevIndex) => {
             // If there are more elements, move to the next one
             if (prevIndex < Object.keys(elements).length - 1) {
-              return prevIndex + 1;
+                setIncorrectChoices([]);
+                return prevIndex + 1;
             } else {
               alert('Game Over');
               return prevIndex; // No change if the game is over
             }
           });
         } else {
-          setSelectedAnswer(choice);
-          const selectedAnswerButton = document.querySelector(`button[value]="${choice}"]`);
-          selectedAnswerButton.disabled = true;
+            setIncorrectChoices([...incorrectChoices, choice]);
         }
+       setIsAnswerCorrect(isAnswerCorrect);
       }
+
+    const getButtonBackgroundColor = (choice) => {
+        if (incorrectChoices.includes(choice)) {
+            return localStyles.redHighlight;
+        } else {
+            return lightMode ? styles.lightButton : styles.darkButton;
+        }
+    }
 
     // evaluates user input
     const evaluateUserInput = (userChoice, correctAnswer) => {
         return userChoice === correctAnswer;
     };
-
 
     // handles back button -- for now this is how users in a session will change a setting or refresh a session
     const handleBack = () => {
@@ -138,7 +121,6 @@ export default function ActiveGameScreen() {
     const currentElement = Object.keys(elements)[currentElementIndex];
     const choices = elements[currentElement];
     
-
     return  (
         <SafeAreaView style= {lightMode ? styles.lightScreenContainer : styles.darkScreenContainer}>
             {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Active Game Screen</Text> */}
@@ -152,9 +134,9 @@ export default function ActiveGameScreen() {
                 <View style={lightMode ? styles.lightViewV : styles.darkViewV}>
                     <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Difficulty: {difficulty}</Text>
                 </View>
-                <View style={lightMode ? styles.lightViewV : styles.darkViewV}>
+                {/* <View style={lightMode ? styles.lightViewV : styles.darkViewV}>
                     <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Mode: {practiceMode}</Text>
-                </View>
+                </View> */}
             </View>
 
             {/* Display Current Element */}
@@ -163,23 +145,18 @@ export default function ActiveGameScreen() {
                 <View style ={{alignItems:'center'}}>
                     <MusicPlaying/>
                 </View>
-                
             </View>
 
             {/* Display Choices */}
             <View style={localStyles.choicesView}>
-                <View style = {lightMode ? styles.lightViewV : styles.darkViewV}>
-                    <Text style={lightMode ? styles.backButtonL : styles.backButton}> Which note is playing? </Text>   
-                </View>
                 {choices && choices.map((choice, index) => (
                         <Pressable 
                             key = {index} 
-                            style={choice === selectedAnswer ? localStyles.red : styles.lightButton} 
+                            style={[getButtonBackgroundColor(choice)]} 
                             onPress={handleUserChoice(choice)}>
                                 <ChoiceSelection choice={choice} choiceDifficulty= {difficulty}/>
                         </Pressable>
                 ))}
-
             </View>
         </SafeAreaView>
     )
@@ -191,14 +168,18 @@ const localStyles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         alignContent: 'center',
+        // paddingTop: 150,
         paddingBottom: 150,
+        flexWrap: 'wrap',
+        justifyContent: 'center',
         
     },
     redHighlight: {
         backgroundColor: 'red',
-    },
-    grayOut: {
-        backgroundColor: 'gray'
+        padding: 10,
+        borderRadius: 5,
+        margin: 10,
+        color:'black'
     },
 }
 )
