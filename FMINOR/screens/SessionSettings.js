@@ -66,28 +66,28 @@ export default function SessionSettings() {
                         </Pressable>
                     </View>
 
-                    {/* TOGGLE MIC */}
+                    {/* TOGGLE MIC
                     <View>
                         <Text style = {lightMode ? styles.lightModeText : styles.darkModeText}> Microphone On: {micOn ? 'Yes' : 'No'}</Text>
                         <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={handleToggleMic}>
                             <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Change Microphone Mode</Text>
                         </Pressable>
-                    </View>
+                    </View> */}
 
                     {/* SELECT DIFFICULTY */}
                     <View>
                         <Text style = {lightMode ? styles.lightModeText : styles.darkModeText}> Difficulty: {difficulty}</Text>
-                            <View style = {lightMode ? styles.lightViewH : styles.darkViewH}>
-                                <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Easy')}>
-                                    <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Easy</Text>
-                                </Pressable>
-                                <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Medium')}>
-                                    <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Medium</Text>
-                                </Pressable>
-                                <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Hard')}>
-                                    <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Hard</Text>
-                                </Pressable>
-                            </View>
+                        <View style = {lightMode ? styles.lightViewH : styles.darkViewH}>
+                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Easy')}>
+                                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Easy</Text>
+                            </Pressable>
+                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Medium')}>
+                                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Medium</Text>
+                            </Pressable>
+                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Hard')}>
+                                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Hard</Text>
+                            </Pressable>
+                        </View>
                     </View>
 
                     {/* SELECT INSTRUMENT */}
@@ -103,24 +103,12 @@ export default function SessionSettings() {
                             <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectInstrument('Violin')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Violin</Text>
                             </Pressable>
+                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectInstrument('Ukelele')}>
+                                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Ukelele</Text>
+                            </Pressable>
                         </View> 
                     </View>
 
-                    {/* SELECT PRACTICE MODE */}
-                    <View>
-                        <Text style = {lightMode ? styles.lightModeText : styles.darkModeText}> Practice Mode: {practiceMode}</Text>
-                        <View style = {lightMode ? styles.lightViewH : styles.darkViewH}>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectPracticeMode('Notes')}>
-                                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Notes</Text>
-                            </Pressable>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectPracticeMode('Chords')}>
-                                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Chords</Text>
-                            </Pressable>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectPracticeMode('Both')}>
-                                <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Both</Text>
-                            </Pressable>
-                        </View>
-                    </View>
                 </View>
 
             
