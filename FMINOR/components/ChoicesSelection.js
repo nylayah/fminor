@@ -17,10 +17,8 @@ function returnAccidentalText (accidental) {
 }
 
 
-
-
 const ChoiceSelection = ({choice, choiceDifficulty}) => {
-    const easyChoice = (choice) => {
+    const Choice = (choice) => {
         const note = notes[`${choice}`].letterGroup;
         const accidental = notes[`${choice}`].accidental;
         const octave = notes[`${choice}`].octave;
@@ -34,7 +32,7 @@ const ChoiceSelection = ({choice, choiceDifficulty}) => {
     }
     return (
         <View>
-            {easyChoice(choice)}
+        {Choice(choice)}
         </View>
     )
 }

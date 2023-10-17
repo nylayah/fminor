@@ -78,13 +78,13 @@ export default function SessionSettings() {
                     <View>
                         <Text style = {lightMode ? styles.lightModeText : styles.darkModeText}> Difficulty: {difficulty}</Text>
                         <View style = {lightMode ? styles.lightViewH : styles.darkViewH}>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Easy')}>
+                            <Pressable style={[lightMode ? styles.lightButton : styles.darkButton, difficulty ==='Easy' ? {backgroundColor:'gray'} : null ]} onPress={() => handleSelectDifficulty('Easy')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Easy</Text>
                             </Pressable>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Medium')}>
+                            <Pressable style={[lightMode ? styles.lightButton : styles.darkButton, difficulty === 'Medium' ? {backgroundColor:'gray'} : null ]} onPress={() => handleSelectDifficulty('Medium')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Medium</Text>
                             </Pressable>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectDifficulty('Hard')}>
+                            <Pressable style={[lightMode ? styles.lightButton : styles.darkButton, difficulty === 'Hard' ? {backgroundColor:'gray'} : null]} onPress={() => handleSelectDifficulty('Hard')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Hard</Text>
                             </Pressable>
                         </View>
@@ -94,16 +94,16 @@ export default function SessionSettings() {
                     <View>
                         <Text style = {lightMode ? styles.lightModeText : styles.darkModeText}> Instrument: {instrument}</Text>
                         <View style = {lightMode ? styles.lightViewH : styles.darkViewH}>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectInstrument('Piano')}>
+                            <Pressable style={[lightMode ? styles.lightButton : styles.darkButton, instrument === 'Piano' ? {backgroundColor:'gray'} : null]} onPress={() => handleSelectInstrument('Piano')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Piano</Text>
                             </Pressable>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectInstrument('Guitar')}>
+                            <Pressable style={[lightMode ? styles.lightButton : styles.darkButton, instrument === 'Guitar' ? {backgroundColor:'gray'} : null]} onPress={() => handleSelectInstrument('Guitar')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Guitar</Text>
                             </Pressable>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectInstrument('Violin')}>
+                            <Pressable style={[lightMode ? styles.lightButton : styles.darkButton, instrument === 'Violin' ? {backgroundColor:'gray'} : null]} onPress={() => handleSelectInstrument('Violin')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Violin</Text>
                             </Pressable>
-                            <Pressable style={lightMode ? styles.lightButton : styles.darkButton} onPress={() => handleSelectInstrument('Ukelele')}>
+                            <Pressable style={[lightMode ? styles.lightButton : styles.darkButton, instrument === 'Ukelele' ? {backgroundColor:'gray'} : null]} onPress={() => handleSelectInstrument('Ukelele')}>
                                 <Text style={lightMode ? styles.lightButtonText : styles.darkButtonText}>Ukelele</Text>
                             </Pressable>
                         </View> 

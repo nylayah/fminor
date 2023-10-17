@@ -69,6 +69,7 @@ export default function ActiveGameScreen() {
     
     const [elements, setElements] = useState({});
     const [currentElementIndex, setCurrentElementIndex] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState('')
 
     useEffect(() => {
         setElements(elementsToPlay());
@@ -91,7 +92,9 @@ export default function ActiveGameScreen() {
             }
           });
         } else {
-          alert('Incorrect Answer');
+          setSelectedAnswer(choice);
+          const selectedAnswerButton = document.querySelector(`button[value]="${choice}"]`);
+          selectedAnswerButton.disabled = true;
         }
       }
 
@@ -108,6 +111,7 @@ export default function ActiveGameScreen() {
 
     const currentElement = Object.keys(elements)[currentElementIndex];
     const choices = elements[currentElement];
+    
 
     return  (
         <SafeAreaView style= {lightMode ? styles.lightScreenContainer : styles.darkScreenContainer}>
@@ -141,7 +145,7 @@ export default function ActiveGameScreen() {
                 {choices && choices.map((choice, index) => (
                         <Pressable 
                             key = {index} 
-                            style={lightMode ? styles.lightButton : styles.darkButton} 
+                            style={choice === selectedAnswer ? localStyles.red : styles.lightButton} 
                             onPress={handleUserChoice(choice)}>
                                 <ChoiceSelection choice={choice} choiceDifficulty= {difficulty}/>
                         </Pressable>
@@ -162,6 +166,12 @@ const localStyles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
         
+    },
+    redHighlight: {
+        backgroundColor: 'red',
+    },
+    grayOut: {
+        backgroundColor: 'gray'
     },
 }
 )

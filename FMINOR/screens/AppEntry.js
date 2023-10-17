@@ -34,13 +34,13 @@ export default function AppEntry() {
                 {/* Buttons to navigate to other screens */}
               <View style = {localStyles.localButtonContainer}>
                 <Pressable style={state.lightMode ? styles.lightButton : styles.darkButton} onPress={handleStartSession}>
-                    <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}>Start Session</Text>
+                    <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}> S T A R T </Text>
                 </Pressable>
                 <Pressable style={state.lightMode ? styles.lightButton: styles.darkButton} onPress={handleSessionSettings}>
-                    <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}>Session Settings</Text>
+                    <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}> S E T T I N G S</Text>
                 </Pressable>
                 <Pressable style={state.lightMode ? styles.lightButton : styles.darkButton } onPress={handleAboutFMINOR}>
-                    <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}>About FMINOR</Text>
+                    <Text style={state.lightMode ? styles.lightButtonText : styles.darkButtonText}> A B O U T</Text>
                 </Pressable>
               </View>
               
