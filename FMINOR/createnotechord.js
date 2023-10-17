@@ -15,3 +15,30 @@ export function returnRandomNote() {
 
     return note;
 }
+
+export function returnRandomChord(chordtype) {
+    //returns a random chord for the user to play/pick
+    // currently limited to major chords
+    switch (chordtype) {
+        case "major":
+            const majorchord = Object.entries(majorchords)[Math.floor(Math.random() * majorChordsLength)][0];
+            return majorchord;
+        default:
+            throw new Error (`Invalid chord type: ${chordtype}`);
+
+    }
+}
+
+export function returnRandomNoteOrChord() {
+    // returns a random note (including accidentals) or chord for the user to play/pick
+    // currently limited to major chords
+    if (Math.random() < 0.5) {
+        return returnRandomChord("major");
+    }
+    else {
+        const note = Object.entries(notes)[Math.floor(Math.random() * notesLength)][0];
+    
+        return note;
+    }
+    
+}   

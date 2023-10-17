@@ -4,7 +4,7 @@ import {View, StyleSheet} from 'react-native'
 import {Easing} from 'react-native-reanimated'
 import {Feather} from '@expo/vector-icons'
 
-const MusicPlaying = ({lightMode}) => {
+const MusicPlaying = () => {
     return (
         <View style = {localStyles.animContainer}>
             {[...Array(3).keys()].map((index) => {
@@ -21,7 +21,7 @@ const MusicPlaying = ({lightMode}) => {
                         loop: true,
                     }}
                     key={index}
-                    style={[StyleSheet.absoluteFillObject, localStyles.animContainer, lightMode ? {backgroundColor: '#7ba098'} : {backgroundColor: '#c3d4d0'}]}
+                    style={[StyleSheet.absoluteFillObject, localStyles.animContainer]}
                     />
                 )
             })}
@@ -35,6 +35,7 @@ const localStyles = StyleSheet.create({
     animContainer: {
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#b4c9c5',
         width: 50,
         height: 50,
         borderRadius: 50,

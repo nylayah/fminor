@@ -45,16 +45,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         justifyContent: 'center',
+        fontFamily: 'system-ui',
     },
     lightHeader:{
         width: '100%',
+        height: '10%',
         backgroundColor: colors.surface300L,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         position: 'absolute',
         top: 0,
-        paddingTop: 65,
-        paddingBottom: 20,
+      
+
     },
     lightModeText: {
         color: colors.secondarytext,
@@ -104,13 +106,12 @@ const styles = StyleSheet.create({
     },
     darkHeader:{
         width: '100%',
+        height: '10%',
         backgroundColor: colors.surface200,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         position: 'absolute',
         top: 0,
-        paddingTop: 65,
-        paddingBottom: 20,
     },
     
     darkModeText: {
@@ -139,7 +140,6 @@ const styles = StyleSheet.create({
     darkViewH: {
         flexDirection: 'row',
         textAlign: 'center',
-        justifyContent: 'space-between',
     },
     //--------------------------------Miscellaneous--------------------------------
     backButton: {

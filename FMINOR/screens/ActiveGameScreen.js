@@ -38,8 +38,22 @@ export default function ActiveGameScreen() {
         const lengths = gameLengths[difficulty];
         const elementsToPlay = {};
         for (let i = 0 ; i < lengths; i++) {
-            const note = returnRandomNote();
-            elementsToPlay[note]= elementsToChooseFrom(note);
+            switch (practiceMode) {
+                case "Notes":
+                    const note = returnRandomNote();
+                    elementsToPlay[note]= elementsToChooseFrom(note);
+                    break;
+                case "Chords":
+                    const chord = returnRandomChord();
+                    elementsToPlay[chord]= elementsToChooseFrom(chord);
+                    break;
+                case "Both":
+                    const noteOrChord = returnRandomNoteOrChord();
+                    elementsToPlay[noteOrChord]= elementsToChooseFrom(noteOrChord);
+                    break;
+                default:
+                    throw new Error (`Invalid practice mode: ${practiceMode}`);
+            }
         }
         return elementsToPlay;
 
@@ -53,7 +67,19 @@ export default function ActiveGameScreen() {
         elementsToChooseFrom.push(correctAnswer);
 
         for (let i = 0 ; i < choicesNum; i++) {
-            elementsToChooseFrom.push(returnRandomNote());
+            switch (practiceMode) {
+                case "Notes":
+                    elementsToChooseFrom.push(returnRandomNote());
+                    break;
+                case "Chords":
+                    elementsToChooseFrom.push(returnRandomChord());
+                    break;
+                case "Both":
+                    elementsToChooseFrom.push(returnRandomNoteOrChord());
+                    break;
+                default:
+                    throw new Error (`Invalid practice mode: ${practiceMode}`);
+            }
         }
         return shuffleArray(elementsToChooseFrom);
     }
@@ -115,6 +141,7 @@ export default function ActiveGameScreen() {
 
     return  (
         <SafeAreaView style= {lightMode ? styles.lightScreenContainer : styles.darkScreenContainer}>
+            {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Active Game Screen</Text> */}
             
             {/* Game Header */}
             <View style={lightMode ? styles.lightHeader : styles.darkHeader}>
@@ -125,23 +152,25 @@ export default function ActiveGameScreen() {
                 <View style={lightMode ? styles.lightViewV : styles.darkViewV}>
                     <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Difficulty: {difficulty}</Text>
                 </View>
+                <View style={lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Mode: {practiceMode}</Text>
+                </View>
             </View>
-            
-            
-            
+
             {/* Display Current Element */}
+            <View>
+                {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>{currentElement}</Text> */}
                 <View style ={{alignItems:'center'}}>
-                    <MusicPlaying lightMode = {lightMode}/>
+                    <MusicPlaying/>
                 </View>
                 
-            {/* <Text style ={lightMode ? styles.lightModeText : styles.darkModeText}>Choose:</Text> */}
+            </View>
 
-            
             {/* Display Choices */}
-            
-           
-          
-                <View style= {localStyles.choicesView}>
+            <View style={localStyles.choicesView}>
+                <View style = {lightMode ? styles.lightViewV : styles.darkViewV}>
+                    <Text style={lightMode ? styles.backButtonL : styles.backButton}> Which note is playing? </Text>   
+                </View>
                 {choices && choices.map((choice, index) => (
                         <Pressable 
                             key = {index} 
@@ -150,8 +179,8 @@ export default function ActiveGameScreen() {
                                 <ChoiceSelection choice={choice} choiceDifficulty= {difficulty}/>
                         </Pressable>
                 ))}
-                </View>
 
+            </View>
         </SafeAreaView>
     )
 }
@@ -163,8 +192,6 @@ const localStyles = StyleSheet.create({
         bottom: 0,
         alignContent: 'center',
         paddingBottom: 150,
-        flexWrap: 'wrap',
-        justifyContent: 'center',
         
     },
     redHighlight: {
